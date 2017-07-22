@@ -1,11 +1,15 @@
 package sid.databaseexample;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 import sid.databaseexample.obj.UserData;
 import sid.databaseexample.queries.InsertQueries;
@@ -16,12 +20,14 @@ public class MainActivity extends AppCompatActivity {
     EditText et_user,et_mob;
     Button btn_save,btn_show;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initControls();
+
     }
 
     private void initControls() {
@@ -48,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.btn_show:
 
-                    SelectQueries.getDetails(MainActivity.this);
+                    Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                    startActivity(intent);
 
                     break;
 
